@@ -6,6 +6,6 @@ const usersRoutes = Router();
 
 const usersController = new UsersController();
 
-usersRoutes.post("/",myMiddleware, usersController.create);
+usersRoutes.post("/", usersController.create);
 
 module.exports = usersRoutes;
