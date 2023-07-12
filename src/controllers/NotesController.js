@@ -4,7 +4,7 @@ const AppError = require("../utils/AppError");
 class NotesController{
     async create(request, response){
         const { title, description, rating, tags } = request.body;
-        const { user_id } = request.params;
+        const user_id = request.user.id;
         const verifyRating = rating > 5 || rating < 0
 
         if(verifyRating){
@@ -53,7 +53,8 @@ class NotesController{
     }
 
     async index(request,response){
-        const { title, user_id, tags } = request.query;
+        const { title, tags } = request.query;
+        const user_id = request.user.id;
 
         let notes;
 
@@ -71,8 +72,6 @@ class NotesController{
                 .whereIn("movie_tags.name", filterTags)
                 .innerJoin("movie_notes", "movie_notes.id", "movie_tags.note_id")
                 .orderBy("movie_notes.title");
-
-                console.log({ notes } )
 
         }else{
 
