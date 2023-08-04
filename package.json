@@ -8,8 +8,10 @@
     "jsonwebtoken": "^9.0.1",
     "knex": "^2.4.2",
     "multer": "^1.4.5-lts.1",
+    "pm2": "^5.3.0",
     "sqlite": "^4.2.1",
-    "sqlite3": "^5.1.6"
+    "sqlite3": "^5.1.6",
+    "uuid": "^9.0.0"
   },
   "scripts": {
     "start": "pm2-runtime start ecosystem.config.js --env production",
